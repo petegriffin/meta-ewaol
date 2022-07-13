@@ -6,7 +6,8 @@
 header:
   version: 11
   includes:
-    - meta-ewaol-config/kas/include/ewaol-release.yml
+    - meta-ewaol-config/kas/include/ewaol-dev.yml
+    - meta-ewaol-config/kas/meta-ledge-security.yml
 
 defaults:
   repos:
@@ -35,6 +36,14 @@ repos:
       meta-filesystems:
       meta-networking:
       meta-python:
+      meta-initramfs:
+      meta-perl:
+
+  meta-security:
+     url: https://git.yoctoproject.org/git/meta-security
+     path: layers/meta-security
+     layers:
+       meta-tpm:
 
   meta-virtualization:
     url: https://git.yoctoproject.org/git/meta-virtualization
@@ -46,6 +55,16 @@ repos:
     layers:
       meta:
       meta-poky:
+    patches:
+      p1:
+        repo : poky
+        path : ../../patches/0001-wic-add-UEFI-kernel-as-UEFI-stub.patch
+      p2:
+        repo : poky
+        path : ../../patches/0002-wic-bootimg-efi-implement-include-path.patch
+      p3:
+        repo : poky
+        path : ../../patches/0001-bootimg-efi.py-fix-cls.patch
 
 local_conf_header:
   ewaol-base: |
