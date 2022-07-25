@@ -14,6 +14,8 @@ IMAGE_BUILDINFO_VARS = " \
 
 inherit core-image image-buildinfo extrausers
 
+DEPENDS:append = " e2fsprogs-native"
+
 # meta-virtualization/recipes-containers/k3s/README.md states that K3s requires
 # 2GB of space in the rootfs to ensure containers can start
 EWAOL_ROOTFS_EXTRA_SPACE ?= "2000000"
