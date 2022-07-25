@@ -44,6 +44,11 @@ repos:
      path: layers/meta-security
      layers:
        meta-tpm:
+       meta-parsec:
+
+  meta-clang:
+     url: https://github.com/kraj/meta-clang
+     path: layers/meta-clang
 
   meta-virtualization:
     url: https://git.yoctoproject.org/git/meta-virtualization
